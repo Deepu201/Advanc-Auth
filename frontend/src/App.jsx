@@ -1,34 +1,36 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import React from 'react'
+import FloatingShap from './component/FloatingShap'
+import {Routes, Route} from 'react-router-dom'
+import SignUpPage from './component/SignUpPage'
+import LoginPage from './component/LoginPage'
+LoginPage
+SignUpPage
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className='min-h-screen bg-gradient-to-tr from-gray-900 via-green-900
+    flex items-center justify-center relative overflow-hidden
+     to-emerald-900'>
+      <FloatingShap color='bg-green-500 ' size='w-64 h-64' top="-5%" left="10%" delay={0}></FloatingShap>
+      <FloatingShap color='bg-emerald-500 ' size='w-48 h-48' top="70%" left="80%" delay={5}></FloatingShap>
+      <FloatingShap color='bg-lime-500 ' size='w-32 h-32' top="40%" left="-10%" delay={2}></FloatingShap>
+      
+      
+      
+      
+      
+      
+
+
+
+<Routes>
+    <Route path="/" element={"homekbikbuki"} />
+    <Route path="/signup" element={<SignUpPage></SignUpPage>} />
+    <Route path="/login" element={<LoginPage></LoginPage>} />
+</Routes>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+
+      
+      
   )
 }
 
