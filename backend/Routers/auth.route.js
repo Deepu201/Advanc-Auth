@@ -9,6 +9,7 @@ route.get('/check-auth',verifyToken,checkAuth)
 
 
 
+
 route.post('/signup',signup)
 route.post('/login',login)
 route.post('/logout',logout)

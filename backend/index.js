@@ -5,6 +5,7 @@ import authrouter from './Routers/auth.route.js'
 import cors from 'cors'
 import cookieParser from 'cookie-parser';
 // Load environment variables from .env file
+
 dotenv.config();
 const app = express();
 
@@ -16,7 +17,6 @@ const port = process.env.PORT || 5000; // Use environment variable for port
 
 app.use(express.json());
 app.use(cookieParser());
-
 
 
 app.use('/api',authrouter)

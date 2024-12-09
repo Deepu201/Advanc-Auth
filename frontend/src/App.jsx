@@ -172,6 +172,7 @@
 //   );
 // }
 
+
 // export default App;
 
 
@@ -195,7 +196,9 @@ import LoadingSpinner from "./component/LoadingSpinner";
 import { Toaster } from "react-hot-toast";
 import { useAuthStore } from "./store/authStore";
 import { useEffect } from "react";
-
+// import ForgotPasswordPage from "./component/ForgotPasswordPage";
+import ForgotPasswordPage from "./component/ForgotPasswordPage";
+import ResetPasswordPage from "./component/ResetPasswordPage";
 // protect routes that require authentication
 const ProtectedRoute = ({ children }) => {
 	const { isAuthenticated, user } = useAuthStore();
@@ -284,7 +287,38 @@ function App() {
 					}
 				/> */}
 				{/* catch all routes */}
-				<Route path='*' element={<Navigate to='/' replace />} />
+
+
+
+				<Route
+    path='/forgot-password'
+    element={
+        <RedirectAuthenticatedUser >
+            <ForgotPasswordPage />
+        </RedirectAuthenticatedUser >
+    }
+/>
+
+
+
+
+<Route
+    path='/reset-password/:token'
+    element={
+        <RedirectAuthenticatedUser >
+            <ResetPasswordPage></ResetPasswordPage>
+        </RedirectAuthenticatedUser >
+    }
+/>
+
+			
+
+			
+
+
+
+
+				{/* <Route path='*' element={<Navigate to='/' replace />} /> */}
 			</Routes>
 			<Toaster />
 		</div>
